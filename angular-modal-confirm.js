@@ -1,10 +1,11 @@
 /*
 * angular-confirm
-* https://github.com/Schlogen/angular-confirm
-* @version v1.1.2 - 2015-09-26
+* https://github.com/riderx/angular-modal-confirm
+* @version v1.0.0 - 2016-01-11
 * @license Apache
 */
-angular.module('angular-confirm', ['ui.bootstrap.modal', 'angularModalService'])
+
+angular.module('angularModalConfirm', ['angularModalService'])
 .value('$confirmModalDefaults', {
   template:
   '<div class="modal fade">' +
