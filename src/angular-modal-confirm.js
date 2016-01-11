@@ -52,14 +52,17 @@ angular.module('angularModalConfirm', ['angularModalService'])
     var deferred = $q.defer();
     ModalService.showModal(settings)
     .then(function(modal) {
-      modal.element.modal();
-      modal.close.then(function(result) {
-        if (result)
-        deferred.resolve(true);
-        else {
-          deferred.reject(false);
-        }
-      });
+      if (modal)
+      {
+        modal.element.modal();
+        modal.close.then(function(result) {
+          if (result)
+          deferred.resolve(true);
+          else {
+            deferred.reject(false);
+          }
+        });
+      }
     });
     return deferred.promise;
   };
@@ -72,11 +75,11 @@ angular.module('angularModalConfirm', ['angularModalService'])
   $scope.data.cancel = angular.copy(cancel);
 
   $scope.ok = function () {
-     close(true, 500);
+    close(true, 500);
   };
 
   $scope.cancel = function () {
-     close(false, 500);
+    close(false, 500);
   };
 
 })

@@ -10,7 +10,6 @@
     $scope.delete = function() {
        $confirmModal({text: 'Are you sure you want to delete?'})
        .then(function() {
-         console.log('ici');
          $scope.message = 'Deleted';
        });
     }
