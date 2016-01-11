@@ -39,7 +39,7 @@ Now just inject the modal service into any controller, service or directive wher
 app.controller('SampleController', function($scope, $confirmModal) {
   var isConfirm = false;
 
-  $scope.confirmAModal = function() {
+  $scope.confirmMe = function() {
 
   	$confirmModal({text: 'Hello modal confirm:)'})
       .then(function() {
@@ -60,7 +60,7 @@ and the controller for it is created.
 
 The `$confirm` function takes an object with these fields:
 
-$confirm([data], [settings])
+$confirmModal([data], [settings])
 
 * `data`: Data to be used by the modal template/templateUrl. Referenced with "data.". The keys "title", "ok", and "cancel" can be used to change the labels used in the modal.
 
