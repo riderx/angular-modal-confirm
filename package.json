@@ -2,7 +2,7 @@
   "name": "angular-modal-confirm",
   "version": "1.0.0",
   "description": "Modal confirme service for AngularJS",
-  "main": "src/angular-modal-confirm.js",
+  "main": "./src/angular-modal-confirm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
