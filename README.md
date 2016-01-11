@@ -24,36 +24,36 @@ bower install angular-modal-confirm
 Then reference the minified script:
 
 ```html
-<script src="bower_components\angular-modal-confirm\dst\angular-modal-confirm.js"></script>
+<script src="bower_components/angular-modal-confirm/src/angular-modal-confirm.js"></script>
 ```
 
 Specify the modal service as a dependency of your application:
 
 ```js
-var app = angular.module('sampleapp', ['angularModalService','angularModalConfirm']);
+var app = angular.module('sampleapp', ['angularModalConfirm']);
 ```
 
 Now just inject the modal service into any controller, service or directive where you need it.
 
 ```js
-app.controller('SampleController', function($scope, $confirm) {
+app.controller('SampleController', function($scope, $confirmModal) {
   var isConfirm = false;
-  
+
   $scope.confirmAModal = function() {
 
-  	$confirm({text: 'Hello modal confirm:)'})
+  	$confirmModal({text: 'Hello modal confirm:)'})
       .then(function() {
       // do your thing if it's confirm
       isConfirm = false;
       });
-      
+
   };
 
 });
 ```
 
-Calling `$confirm` returns a promise which is resolved when the modal DOM element is created
-and the controller for it is created. 
+Calling `$confirmModal` returns a promise which is resolved when the modal DOM element is created
+and the controller for it is created.
 
 ```
 #### $confirm Options
