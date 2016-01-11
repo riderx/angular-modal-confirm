@@ -1,0 +1,30 @@
+{
+  "name": "angular-modal-confirm",
+  "main": "angular-modal-confirm.js",
+  "homepage": "https://github.com/riderx/angular-modal-confirm",
+  "authors": [
+    "Martin donadieu <martindonadieu@gmail.com>"
+  ],
+  "description": "Modal confirm service for AngularJS",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "modal",
+    "confirm",
+    "service",
+    "angular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-modal-service": "~0.6.9"
+  }
+}
