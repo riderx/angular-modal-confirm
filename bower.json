@@ -1,5 +1,5 @@
 {
-  "name": "angularModalConfirm",
+  "name": "angular-modal-confirm",
   "main": "./src/angular-modal-confirm.js",
   "homepage": "https://github.com/riderx/angular-modal-confirm",
   "authors": [
