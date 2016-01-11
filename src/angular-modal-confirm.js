@@ -32,7 +32,7 @@ angular.module('angularModalConfirm', ['angularModalService'])
     cancel: 'Cancel'
   }
 })
-.factory('$confirm', function ($modal, $confirmModalDefaults, ModalService, $q) {
+.factory('$confirmModal', function ($confirmModalDefaults, ModalService, $q) {
   return function (data, settings) {
     var defaults = angular.copy($confirmModalDefaults);
     settings = angular.extend(defaults, (settings || {}));
@@ -80,14 +80,14 @@ angular.module('angularModalConfirm', ['angularModalService'])
   };
 
 })
-.directive('confirm', function ($confirm) {
+.directive('confirmModal', function ($confirmModal) {
   return {
     priority: 1,
     restrict: 'A',
     scope: {
       confirmIf: "=",
       ngClick: '&',
-      confirm: '@',
+      confirmModal: '@',
       confirmSettings: "=",
       confirmTitle: '@',
       confirmOk: '@',
@@ -111,7 +111,7 @@ angular.module('angularModalConfirm', ['angularModalService'])
           if (scope.confirmCancel) {
             data.cancel = scope.confirmCancel;
           }
-          $confirm(data, scope.confirmSettings || {}).then(scope.ngClick);
+          $confirmModal(data, scope.confirmSettings || {}).then(scope.ngClick);
         } else {
 
           scope.$apply(scope.ngClick);
