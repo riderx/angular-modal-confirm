@@ -2,20 +2,18 @@
   "use strict";
 
   angular.module('demoApp', [
-    'angularModalService',
     'angularModalConfirm'
   ])
-  .controller('GreetingController', function ($scope, $confirm) {
+  .controller('GreetingController', function ($scope, $confirmModal) {
     $scope.name = "jean claude";
 
     $scope.delete = function() {
-      $confirm({text: 'Are you sure you want to delete?'})
-      .then(function() {
-        console.log('ici');
-        $scope.message = 'Deleted';
-      });
+       $confirmModal({text: 'Are you sure you want to delete?'})
+       .then(function() {
+         console.log('ici');
+         $scope.message = 'Deleted';
+       });
     }
-
 
   });
 
