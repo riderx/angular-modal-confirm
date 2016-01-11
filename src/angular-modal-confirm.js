@@ -63,6 +63,8 @@ angular.module('angularModalConfirm', ['angularModalService'])
           }
         });
       }
+    }).catch(function(error) {
+      console.log(error);
     });
     return deferred.promise;
   };
