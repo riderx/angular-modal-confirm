@@ -1,5 +1,7 @@
 # angular-modal-confirm
 
+Need help for add testing, travis and other
+
 =====================
 
 Modal confirme service for AngularJS - supports creating confirm modals via a service. See [a quick fiddle](https://jsfiddle.net/riderx/aa0L1xb7/) .
