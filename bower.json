@@ -18,6 +18,7 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
+    "samples",
     ".gitignore",
     "node_modules",
     "bower_components",
