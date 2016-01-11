@@ -52,7 +52,7 @@ angular.module('angularModalConfirm', ['angularModalService'])
     var deferred = $q.defer();
     ModalService.showModal(settings)
     .then(function(modal) {
-      if (modal)
+      if (modal && modal.element)
       {
         modal.element.modal();
         modal.close.then(function(result) {
@@ -62,6 +62,9 @@ angular.module('angularModalConfirm', ['angularModalService'])
             deferred.reject(false);
           }
         });
+      }
+      else {
+        console.log(modal);
       }
     }).catch(function(error) {
       console.log(error);
