@@ -30,7 +30,7 @@ Then reference the minified script:
 Specify the modal service as a dependency of your application:
 
 ```js
-var app = angular.module('sampleapp', ['angularModalConfirm']);
+var app = angular.module('sampleapp', ['angularModalService','angularModalConfirm']);
 ```
 
 Now just inject the modal service into any controller, service or directive where you need it.
