@@ -11,9 +11,9 @@ angular.module('angularModalConfirm', ['angularModalService'])
   '<div class="modal fade">' +
   '<div class="modal-dialog">' +
   '<div class="modal-content">' +
-  '<div class="modal-header"> {{data.title}}' +
+  '<div class="modal-header">' +
   '<button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-hidden="true">&times;</button>' +
-  '<h4 class="modal-title">Yes or No?</h4>' +
+  '<h4 class="modal-title">{{data.title}}</h4>' +
   '</div>' +
   '<div class="modal-body">' +
   '<p>{{data.text}}</p>' +
@@ -28,6 +28,7 @@ angular.module('angularModalConfirm', ['angularModalService'])
   controller: 'ConfirmModalController',
   inputs: {
     title: 'Confirm',
+    text:'Hey, are you sure ?',
     ok: 'OK',
     cancel: 'Cancel'
   }
@@ -37,7 +38,7 @@ angular.module('angularModalConfirm', ['angularModalService'])
     var defaults = angular.copy($confirmModalDefaults);
     settings = angular.extend(defaults, (settings || {}));
 
-    data = angular.extend({}, settings.defaultLabels, data || {});
+    data = angular.extend({}, settings.labels, data || {});
 
     if ('templateUrl' in settings && 'template' in settings) {
       delete settings.template;
@@ -72,9 +73,10 @@ angular.module('angularModalConfirm', ['angularModalService'])
     return deferred.promise;
   };
 })
-.controller('ConfirmModalController', function ($scope, close, title, ok, cancel) {
+.controller('ConfirmModalController', function ($scope, close, title, ok, cancel, text) {
 
   $scope.data = {};
+  $scope.data.text = angular.copy(text);
   $scope.data.title = angular.copy(title);
   $scope.data.ok = angular.copy(ok);
   $scope.data.cancel = angular.copy(cancel);
