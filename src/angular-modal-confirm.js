@@ -28,8 +28,8 @@ angular.module('angularModalConfirm', ['angularModalService'])
   controller: 'ConfirmModalController',
   inputs: {
     title: 'Confirm',
-    text:'Hey, are you sure ?',
     ok: 'OK',
+    text:'hey, are you sure ?',
     cancel: 'Cancel'
   }
 })
@@ -37,18 +37,12 @@ angular.module('angularModalConfirm', ['angularModalService'])
   return function (data, settings) {
     var defaults = angular.copy($confirmModalDefaults);
     settings = angular.extend(defaults, (settings || {}));
-
-    data = angular.extend({}, settings.labels, data || {});
+    data = {data: angular.extend({}, settings.inputs, data || {})};
 
     if ('templateUrl' in settings && 'template' in settings) {
       delete settings.template;
     }
-
-    settings.resolve = {
-      data: function () {
-        return data;
-      }
-    };
+    settings.inputs = data;
 
     var deferred = $q.defer();
     ModalService.showModal(settings)
@@ -73,13 +67,9 @@ angular.module('angularModalConfirm', ['angularModalService'])
     return deferred.promise;
   };
 })
-.controller('ConfirmModalController', function ($scope, close, title, ok, cancel, text) {
+.controller('ConfirmModalController', function ($scope, close, data) {
 
-  $scope.data = {};
-  $scope.data.text = angular.copy(text);
-  $scope.data.title = angular.copy(title);
-  $scope.data.ok = angular.copy(ok);
-  $scope.data.cancel = angular.copy(cancel);
+  $scope.data = angular.copy(data);
 
   $scope.ok = function () {
     close(true, 500);
